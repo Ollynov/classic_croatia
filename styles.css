@@ -5,6 +5,14 @@ body, html {
     line-height: 1.8;
 }
 
+#title {
+    background-color: transparent !important;
+}
+
+#smallNav, #myNavbar {
+    color: white;
+}
+
 /* Create a Parallax Effect */
 .bgimg-1, .bgimg-2, .bgimg-3 {
     background-attachment: fixed;
