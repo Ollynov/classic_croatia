@@ -21,17 +21,22 @@ body, html {
 
 /* Second image (Portfolio) */
 .bgimg-2 {
-    background-image: url("/w3images/parallax2.jpg");
+    background-image: url("assets/vineyard.jpg");
     min-height: 400px;
 }
 
 /* Third image (Contact) */
 .bgimg-3 {
-    background-image: url("/w3images/parallax3.jpg");
+    background-image: url("assets/rovinj.jpg");
     min-height: 400px;
 }
 
-.w3-wide {letter-spacing: 10px;}
+.w3-wide {
+    letter-spacing: 10px;
+    color: white !important;
+    background-color: #232121e6;
+
+}
 .w3-hover-opacity {cursor: pointer;}
 
 /* Turn off parallax scrolling for tablets and phones */
