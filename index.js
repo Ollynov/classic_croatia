@@ -1,6 +1,6 @@
 function myMap()
 {
-  myCenter=new google.maps.LatLng(45.227165,13.594740);
+  myCenter=new google.maps.LatLng(45.363437,13.637642);
   var mapOptions= {
     center:myCenter,
     zoom:12, scrollwheel: false, draggable: false,
