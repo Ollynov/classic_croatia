@@ -7,7 +7,7 @@ var client = contentful.createClient({
 console.log('ok our client is: ', client)
 
 let genericCroatiaImages = [];
-let heroImages = [];
+let heroImages = {};
 
 client.getAssets()
 .then(function (entries) {
@@ -15,8 +15,19 @@ client.getAssets()
   entries.items.forEach(function (entry) {
 
     let split = entry.fields.title.split(' ')[0] + entry.fields.title.split(' ')[1]
+    console.log('split is: ', split)
     if(split === "CroatiaGeneric") {
       genericCroatiaImages.push(entry.fields.file.url)
+    }
+
+    if (split === "hero1") {
+      heroImages["0"] = entry.fields.file.url
+    }
+    if (split === "hero2") {
+      heroImages["1"] = entry.fields.file.url
+    }
+    if (split === "hero3") {
+      heroImages["2"] = entry.fields.file.url
     }
   })
 })
@@ -24,6 +35,14 @@ client.getAssets()
   $('.genericCroatia').each(function(index) {
     let path = 'http:' + genericCroatiaImages[index];
     $(this).attr('src', path)
+  })  
+
+  // console.log('heroImages are: ', heroImages)
+
+  $('.hero').each(function(index) {
+    let path = 'http:' + heroImages[index];
+    console.log('ok path for hero is: ', path)
+    $(this).css('background-image', "url(" + path + ")")
   })
 })
 
