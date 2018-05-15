@@ -1,3 +1,24 @@
+var contentful = require('contentful')
+
+var client = contentful.createClient({
+  space: 's68hzlm32e9n',
+  accessToken: '029c7bc880752bb7ef375f19c598b4a769deeca51ed847839f891bcc122c44a3'
+})
+
+client.getEntry('5tDjUhy8WAEgwCG64oa0c0')
+// marija
+.then(function (entry) {
+  // logs the entry metadata
+  console.log(entry.sys)
+
+  // logs the field with ID title
+  console.log(entry.fields.productName)
+  console.log('full marija object: ', entry)
+})
+
+
+
+
 function myMap()
 {
   myCenter=new google.maps.LatLng(45.363437,13.637642);
