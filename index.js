@@ -6,14 +6,29 @@ var client = contentful.createClient({
 
 console.log('ok our client is: ', client)
 
-client.getAsset('2JFUMJ3JJmmeCiuYk2Aw8u')
-// generic Croatia 1
-.then(function (entry) {
+let genericCroatiaImages = [];
+let heroImages = [];
 
-  let url = 'http:' + entry.fields.file.url
-  console.log('ok url is: ', url)
-  $('#first').attr("src", url)
+client.getAssets()
+.then(function (entries) {
+  // log the title for all the entries that have it
+  entries.items.forEach(function (entry) {
+
+    let split = entry.fields.title.split(' ')[0] + entry.fields.title.split(' ')[1]
+    if(split === "CroatiaGeneric") {
+      genericCroatiaImages.push(entry.fields.file.url)
+    }
+  })
 })
+.then(function(result) {
+  $('.genericCroatia').each(function(index) {
+    let path = 'http:' + genericCroatiaImages[index];
+    $(this).attr('src', path)
+  })
+})
+
+
+
 
 
 
