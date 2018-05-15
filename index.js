@@ -1,18 +1,18 @@
-console.log('ok contentful is: ', contentful)
+
 var client = contentful.createClient({
   space: 's68hzlm32e9n',
   accessToken: '029c7bc880752bb7ef375f19c598b4a769deeca51ed847839f891bcc122c44a3'
 })
 
-client.getEntry('5tDjUhy8WAEgwCG64oa0c0')
-// marija
-.then(function (entry) {
-  // logs the entry metadata
-  console.log(entry.sys)
+console.log('ok our client is: ', client)
 
-  // logs the field with ID title
-  console.log(entry.fields.productName)
-  console.log('full marija object: ', entry)
+client.getAsset('2JFUMJ3JJmmeCiuYk2Aw8u')
+// generic Croatia 1
+.then(function (entry) {
+
+  let url = 'http:' + entry.fields.file.url
+  console.log('ok url is: ', url)
+  $('#first').attr("src", url)
 })
 
 
