@@ -4,7 +4,6 @@ var client = contentful.createClient({
   accessToken: '029c7bc880752bb7ef375f19c598b4a769deeca51ed847839f891bcc122c44a3'
 })
 
-console.log('ok our client is: ', client)
 
 let genericCroatiaImages = [];
 let heroImages = {};
@@ -37,7 +36,6 @@ client.getAssets()
     $(this).attr('src', path)
   })  
 
-  // console.log('heroImages are: ', heroImages)
 
   $('.hero').each(function(index) {
     let path = 'http:' + heroImages[index];
@@ -45,8 +43,6 @@ client.getAssets()
     $(this).css('background-image', "url(" + path + ")")
   })
 })
-
-
 
 
 
