@@ -1,5 +1,4 @@
-var contentful = require('contentful')
-
+console.log('ok contentful is: ', contentful)
 var client = contentful.createClient({
   space: 's68hzlm32e9n',
   accessToken: '029c7bc880752bb7ef375f19c598b4a769deeca51ed847839f891bcc122c44a3'
