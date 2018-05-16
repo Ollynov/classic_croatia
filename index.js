@@ -58,22 +58,37 @@ client.getEntry('2NcdcWnhSgwkO6IGgAYcK2')
 })
 .catch(console.error)
 
+// Phone Number
+client.getEntry('5yY1vewASs0kuQgaqyYgiK')
+.then((entry) => {
+  $('#phone').text(entry.fields.number)
+})
+.catch(console.error)
 
 
-function myMap()
-{
-  myCenter=new google.maps.LatLng(45.363437,13.637642);
-  var mapOptions= {
-    center:myCenter,
-    zoom:12, scrollwheel: false, draggable: false,
-    mapTypeId:google.maps.MapTypeId.ROADMAP
-  };
-  var map=new google.maps.Map(document.getElementById("googleMap"),mapOptions);
 
-  var marker = new google.maps.Marker({
-    position: myCenter,
-  });
-  marker.setMap(map);
+
+
+function myMap() {
+  client.getEntry('k0wvRCwLssMaGIE8g0C2')
+  .then((entry) => {
+    const lat = entry.fields.lat;
+    const long = entry.fields.long;
+    myCenter=new google.maps.LatLng(lat,long);
+    // myCenter=new google.maps.LatLng(45.363437,13.637642);
+    var mapOptions= {
+      center:myCenter,
+      zoom:12, scrollwheel: false, draggable: false,
+      mapTypeId:google.maps.MapTypeId.ROADMAP
+    };
+    var map=new google.maps.Map(document.getElementById("googleMap"),mapOptions);
+
+    var marker = new google.maps.Marker({
+      position: myCenter,
+    });
+    marker.setMap(map);
+  })
+  .catch(console.error)
 }
 
 // Modal Image Gallery
