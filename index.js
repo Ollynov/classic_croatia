@@ -44,7 +44,19 @@ client.getAssets()
   })
 })
 
+// About the House
+client.getEntry('1oZPhoCtiMuQ8kcKOCI6UA')
+.then((entry) => {
+  $('#houseDescription').text(entry.fields.text)
+})
+.catch(console.error)
 
+// About the host Marija
+client.getEntry('2NcdcWnhSgwkO6IGgAYcK2')
+.then((entry) => {
+  $('#hostDescription').text(entry.fields.text)
+})
+.catch(console.error)
 
 
 
